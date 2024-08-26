@@ -1,12 +1,71 @@
 # South Sudan Project 
-
-Hunger affects approximately 783 million people globally, equating to about 10% of the population. Over the past few years (2019-2022), this number has increased due to conflicts, climate change, food insecurity, and the impacts of COVID-19.
+In South Sudan, where over 2/3 of the population face food insecurity, the scars of the South Sudanese Civil War (2013-2020) persist, marked by conflicts between liberation movements and governments, including Sudan's People Liberation Movement (SPLM) and Sudan People's Liberation Movement-in-Opposition (SPLM-IO), along with various rebel groups (Aufiero, P. (2021). "South Sudan at a Crossroads."
+Human Rights Watch). The ever-changing dynamics of power and conflict in this region pose a continuous threat of severe, unforeseen hunger (Oxfam International. (n.d.). "Hunger Crisis in South Sudan." www.oxfam.org). By combining conflict data with climate data, we aim to identify pivotal moments in conflict dynamics leading to unanticipated food insecurity.
 
 Zero Hunger Labs (ZHL), in collaboration with the World Food Program (WFP), focuses on assessing and addressing acute malnutrition. ZHL's mission is to optimize WFP's workflow to enable more precise responses to global food crises. By analyzing data from WFP and publicly available sources, as well as photos and videos, ZHL aims to identify malnourishment and address gaps in medical attention.
 
-The project specifically targets predicting food insecurity in South Sudan using the IPC (Integrated Food Security Phase Classification) system, which categorizes acute food insecurity into five phases. Regions classified in phase 3 or higher are experiencing significant food insecurity, necessitating humanitarian intervention. Currently, IPC classifications are reactive, focusing on current conditions rather than predicting future food insecurity.
+Our research focuses on the districts Koch and Rubkona due to their shared climate zone which allows us to observe the impact of high-conflict events on food insecurity in Rubkona, a frontline district, as compared to the non-affected district, Koch. This comparative analysis provides a unique perspective on the potential influence of conflict dynamics on food security, informing future civil war development projections and facilitating the implementation of safety precautions to mitigate risks associated with potential catastrophic events.
 
-ZHL seeked help from our University to explore whether news articles can serve as an additional data source or proxy for missing information to predict IPC phases ahead of time. This approach was previously successful in Somalia and is now being tested in the context of South Sudan.
+Goal: To offer actionable insights for Zero Hunger Labs (ZHL), guiding aid strategies for food insecurity in the context of civil war development, through the analysis of information sourced from news articles and available weather signals.
+
+### Research Question: 
+How does the volume of conflict-related news articles influence IPC scores in a frontline district like Rubkona, in contrast to a less-violent district such as Koch, situated in the same climate zone?
+
+## Evaluation and Interpretation of Results
+
+In our evaluation methods, Mean Squared Error (MSE) was chosen because it is sensitive to larger errors.
+This mitigated the impact that large deviations in IPC score predictions may have on the results, as such
+deviations lead to limited awareness of food insecurity severity in affected areas. Additionally, a Bayesian
+one-sided tail-area test is employed to check the probability of the observed causal impact of the
+intervention that occurs by random chance. Furthermore, to minimize bias in our analysis, we implemented
+manual topic and location labeling of 459 articles. This approach not only minimized bias, but also identified,
+removed and corrected the misclassifications from the BERT model as well as filtered out articles not related
+to Bentiu or Koch. Overall, this enhanced the accuracy and reliability of our research and the evaluation
+process.
+
+In interpreting our results, the Bayesian Structural Time series Model indicated a lasting impact of
+significant conflict events on food insecurity. By clarifying a causal effect resulting from the Bentiu
+takeover in particular, this model offered insightful information on the long-term effects of conflict events on
+IPC scores. This understanding will be helpful in predicting the consequences of such large events in the
+future. Moreover, regarding the prediction models for Koch and Rubkona, our research shows that using
+four years of training data to establish a robust prediction model results in the lowest MSE scores. For
+this project, the longer training period was important to achieve a high accuracy in predicting IPC scores for
+these specific regions.
+
+Our analysis revealed that there was a considerable decrease in the accuracy of IPC score predictions
+during and following major conflict events. This underlined the difficulty in preserving a high quality and
+reliability of food insecurity predictions in the face of major conflict events. One would have to to run the time
+series intervention causal inference for a specific event to know if retraining of the OLS model is required.
+One limitation of our analysis is that in other districts, more confounding variables could have a significant
+impact on the IPC scores. Another limitation is that different districts get varying news coverage, as our
+analysis focuses on the number of conflict related reports this would hinder the accurate predictions of IPC
+scores from our model.
+
+The project's reflection reveals that the model's effectiveness in predicting IPC scores is specific to Koch
+and Rubkona due to variations in parameter weights among counties. Notably, the model accurately
+forecasts the imminent impact of major events, enabling improved resource allocation. Future research
+suggestions include refining the model by differentiating between types of conflicts through the incorporation
+of dummy variables which requires an experts opinion.
+
+With our analysis we are now able to answer our research question. We are able to model IPC scores
+in Koch and Rubkona (two frontline districts of the civil conflict) effectively with the volume of conflict related
+news articles and climate variables (see correlation and model section). Furthermore we found that a large
+conflict event requires retraining the model due to the lasting impact.
+
+Recommendations for Zero Hunger Labs (ZHL) involve cautioning against events with high violence
+levels, suggesting retraining of prediction models based on the four most recent years. ZHL should extend
+the model's application to more districts and cities, including the capital, Juba, for a broader understanding
+of resource allocation needs. Although we were able to model IPC scores effectively for Koch and Rubkona
+with just climate data and the number of conflict articles, for other districts ZHL should explore additional
+confounding variables for model robustness as different geographical variables could be impacting the food
+insecurity. Our third recommendation to ZHL is to make clear differentiations between civil war conflicts and
+other conflicts to better be able to model the impact that civil war conflict has on forefront districts as it will
+allow for improved recommendations for the shifting conflict dynamics.
+
+This comparative analysis provided a unique perspective on the potential influence of conflict dynamics on
+food security, informing future civil war development projections and facilitating the implementation of safety
+precautions to mitigate risks associated with potential catastrophic events.
+
 ## Code description
 
 ### Hand-labeling
