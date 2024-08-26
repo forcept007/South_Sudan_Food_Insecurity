@@ -116,3 +116,12 @@ If you encounter any issues while running the notebooks, try the following:
 - check that the models folder exists (for placeholder _blank_ was placed in the folder)
 - delete all contents in models folder
 - issues with installing spacy go to: https://spacy.io/usage
+
+
+## Contributors
+- Paul Thielen
+- Martijn Heesakkers
+- Caspar Nijssen
+- Joery van der Meijden
+- Pablo Egger Prieto
+- Patra Haralabus
